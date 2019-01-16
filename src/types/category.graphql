@@ -1,0 +1,19 @@
+type Category {
+    _id: ID!
+    label: String!
+    books: [Book]!
+}
+
+type Query {
+    category: Category! @auth
+    categories: [Category]! @auth
+}
+
+input CreateCategoryInput {
+    _id: String!
+    label: String!
+}
+
+type Mutation {
+    createCategory(input: CreateCategoryInput!): Category @auth
+}

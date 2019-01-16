@@ -1,0 +1,23 @@
+type Book {
+    _id: ID!
+    title: String!
+    content: String!
+    author: User!
+    category: Category!
+}
+
+type Query {
+    books: [Book] @auth
+    book(_id: String!): Book @auth
+}
+
+input CreateBookInput {
+    title: String!
+    content: String!
+    author: String!
+    category: String!
+}
+
+type Mutation {
+    createBook(input: CreateBookInput!): Book! @auth
+}

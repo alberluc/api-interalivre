@@ -1,0 +1,16 @@
+type User {
+    _id: ID!
+    firstName: String!
+    lastName: String!
+    mail: String!
+    password: String!
+    picture: File
+    birthedAt: Date!
+    createdAt: DateTime!
+    role: Role!
+    books: [Book]!
+}
+
+type Query {
+    user(_id: String!): User @auth
+}

@@ -1,0 +1,15 @@
+scalar Date
+scalar Time
+scalar DateTime
+scalar Upload
+
+enum Role {
+    ADMIN
+    USER
+    ANONYMOUS
+    AUTHOR
+}
+
+directive @auth(
+    role: Role = USER,
+) on QUERY | MUTATION | FIELD_DEFINITION

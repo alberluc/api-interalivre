@@ -1,0 +1,30 @@
+type Auth {
+    token: String!
+}
+
+input AuthLoginInput {
+    mail: String!
+    password: String!
+}
+
+input AuthRegisterInput {
+    firstName: String!
+    lastName: String!
+    mail: String!
+    password: String!
+    birthedAt: Date!
+}
+
+input UpdateMeInput {
+    picture: Upload
+}
+
+type Query {
+    me: User @auth
+}
+
+type Mutation {
+    updatePictureMe(file: Upload): User @auth
+    login(input: AuthLoginInput): Auth @auth(role: ANONYMOUS)
+    register(input: AuthRegisterInput): Auth @auth(role: ANONYMOUS)
+}
